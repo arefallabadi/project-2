@@ -45,7 +45,11 @@ li {
   }
   section{
       display: block;
-      background-color: #55BDFA;
+      border: solid rgb(196, 194, 194);
+      /* border-top: solid ;
+      border-bottom: solid; */
+      margin-top:40px ;
+      /* background-color: #55BDFA; */
       border-radius: 20px;
   }
 
@@ -95,7 +99,7 @@ button{
     transition: 0.3s;
     /* width: 40%; */
     border-radius: 5px;
-    background-color: white ;
+    background-color: #55BDFA ;
     margin-bottom:10px;
     height:200px  ;
     margin-left:10px ;
