@@ -98,7 +98,8 @@ button{
     background-color: white ;
     margin-bottom:10px;
     height:200px  ;
-    margin-left:10px  ;
+    margin-left:10px ;
+    /* border: solid gray; */
   }
   
   .card:hover {
