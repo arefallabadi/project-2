@@ -13,7 +13,7 @@ let all = [
   { section: "clothes", img: "./clo/s8.jpg", price: 25, p: "For Children" },
   { section: "clothes", img: "./clo/s9.jpg", price: 30, p: "For Children" },
   { section: "clothes", img: "./clo/s10.jpg", price: 20, p: "For Children" },
-  { section: "electronic", img: "./ele/1.webp", price: 20, p: "Headphones"  },
+  { section: "electronic", img: "./ele/1.webp", price: 20, p: "Headphones" },
   { section: "electronic", img: "./ele/2.jpg", price: 70, p: "Screen" },
   { section: "electronic", img: "./ele/3.jpg", price: 10, p: "Mouse" },
   { section: "electronic", img: "./ele/4.jpg", price: 7, p: "Charger" },
@@ -46,184 +46,63 @@ const kitchen = $("#kitchen");
 const shoes = $("#shoes");
 const bag = $("#bag");
 const buy = $("#buy");
-const c =$("#c")
-const e = $("#e")
-const k = $("#k")
-const s = $("#s")
-const b = $("#b")
-
+const c = $("#c");
+const e = $("#e");
+const k = $("#k");
+const s = $("#s");
+const b = $("#b");
 
 const load = () => {
+  register.hide();
+  contact.hide();
+  about.hide();
+  // market.hide();
+  clothes.hide();
+  electronic.hide();
+  kitchen.hide();
+  shoes.hide();
+  bag.hide();
+  buy.hide();
+};
+
+let but_1 = false;
+const registering = () => {
+  if (but_1 === false) {
+    register.show();
+    but_1 = true;
+  } else {
     register.hide();
+    but_1 = false;
+  }
+};
+let but_2 = false;
+const contactUs = () => {
+  if (but_2 === false) {
+    contact.show();
+    but_2 = true;
+  } else {
     contact.hide();
+    but_2 = false;
+  }
+};
+let but_3 = false;
+const abo = () => {
+  if (but_3 === false) {
+    about.show();
+    but_3 = true;
+  } else {
     about.hide();
-    // market.hide();
-    clothes.hide();
-    electronic.hide();
-    kitchen.hide();
-    shoes.hide();
-    bag.hide();
-    buy.hide();
-  };
-  
-  let but_1 = false;
-  const registering = () => {
-    if (but_1 === false) {
-      register.show();
-      but_1 = true;
-    } else {
-      register.hide();
-      but_1 = false;
-    }
-  };
-  let but_2 = false;
-  const contactUs = () => {
-    if (but_2 === false) {
-      contact.show();
-      but_2 = true;
-    } else {
-      contact.hide();
-      but_2 = false;
-    }
-  };
-  let but_3 = false;
-  const abo = () => {
-    if (but_3 === false) {
-      about.show();
-      but_3 = true;
-    } else {
-      about.hide();
-      but_3 = false;
-    }
-  };
-
-const createCard =()=>{
-    
-    // for(let i = 0 ; i<all.length ;i++ ){
-    //    let div = $(
-    //     `
-    //     <div>
-    //         <div class="card">
-    //           <img class="img" src=${all[i].img} style="width:100%">
-    //           <div class="container">
-    //             <h4><b> ${all[i].price} JD</b></h4>
-    //             <p>${all[i].p}</p>
-    //           </div>
-    //         </div>
-    //         `
-    //     )
-    //     c.append(div)
-    // }
-
-    //    let y = all.forEach((e,i)=>{
-    //     let div = $(
-    //         ` <div>
-    //             <div class="card">
-    //               <img class="img" src=${all[i].img} style="width:100%">
-    //               <div class="container">
-    //                 <h4><b> ${all[i].price} JD</b></h4>
-    //                 <p>${all[i].p}</p>
-    //               </div>
-    //             </div>
-    //             `
-    //         )
-    //         c.append(div)
-    // })
-}
-let but_c = false 
-const clothesSection =()=>{
+    but_3 = false;
+  }
+};
+let but_c = false;
+const clothesSection = () => {
+  if (but_c === false) {
     clothes.show();
-    all.filter((elm,i)=>{
-        if (all[i].section ==="clothes"){
-            let div = $(
-                ` <div>
-                    <div class="card">
-                      <img class="img" src=${all[i].img} style="width:100%">
-                      <div class="container">
-                        <h4><b> ${all[i].price} JD</b></h4>
-                        <p>${all[i].p}</p>
-                      </div>
-                    </div>
-                    `
-                )
-                c.append(div)
-        }
-       
-    })
-}
-
-let but_e = false
-const electronicSection = ()=>{
-    electronic.show();
-    all.filter((elm,i)=>{
-        if (all[i].section ==="electronic"){
-            let div = $(
-                ` <div>
-                    <div class="card">
-                      <img class="img" src=${all[i].img} style="width:100%">
-                      <div class="container">
-                        <h4><b> ${all[i].price} JD</b></h4>
-                        <p>${all[i].p}</p>
-                      </div>
-                    </div>
-                    `
-                )
-                e.append(div)
-        }
-    })
-}
-
-let but_k =false
-const kitchenSection = ()=>{
-kitchen.show();
-    all.filter((elm,i)=>{
-        if (all[i].section ==="kitchen"){
-            let div = $(
-                ` <div>
-                    <div class="card">
-                      <img class="img" src=${all[i].img} style="width:100%">
-                      <div class="container">
-                        <h4><b> ${all[i].price} JD</b></h4>
-                        <p>${all[i].p}</p>
-                      </div>
-                    </div>
-                    `
-                )
-                k.append(div)
-        }
-    })
-}
-
-let but_s = false 
-const shoesSection = ()=>{
-    shoes.show();
-    all.filter((elm,i)=>{
-        if (all[i].section ==="shoes"){
-            let div = $(
-                ` <div>
-                    <div class="card">
-                      <img class="img" src=${all[i].img} style="width:100%">
-                      <div class="container">
-                        <h4><b> ${all[i].price} JD</b></h4>
-                        <p>${all[i].p}</p>
-                      </div>
-                    </div>
-                    `
-                )
-                s.append(div)
-        }  
-    })
-}
-
-let but_b = false 
-let count = 0
-const bagSection = ()=>{
-    if(but_b === false ){
-        bag.show();
-        all.filter((elm,i)=>{
-            if (all[i].section ==="bag"){
-                let div = $(
-                    ` <div>
+    all.filter((elm, i) => {
+      if (all[i].section === "clothes") {
+        let div = $(
+          ` <div>
                         <div class="card">
                           <img class="img" src=${all[i].img} style="width:100%">
                           <div class="container">
@@ -232,19 +111,130 @@ const bagSection = ()=>{
                           </div>
                         </div>
                         `
-                    )
-                    b.append(div)
-            }
-           
-        })
-        but_b =true
-    } 
-     else{  
-        bag.hide()
-        but_b = false
-        b.html("")
-    }
-}
+        );
+        c.append(div);
+      }
+    });
+    but_c = true;
+  } else {
+    clothes.hide();
+    but_c = false;
+    c.html("");
+  }
+};
+
+let but_e = false;
+const electronicSection = () => {
+  if (but_e === false) {
+    electronic.show();
+    all.filter((elm, i) => {
+      if (all[i].section === "electronic") {
+        let div = $(
+          ` <div>
+                        <div class="card">
+                          <img class="img" src=${all[i].img} style="width:100%">
+                          <div class="container">
+                            <h4><b> ${all[i].price} JD</b></h4>
+                            <p>${all[i].p}</p>
+                          </div>
+                        </div>
+                        `
+        );
+        e.append(div);
+      }
+    });
+    but_e = true;
+  } else {
+    electronic.hide();
+    but_e = false;
+    e.html("");
+  }
+};
+
+let but_k = false;
+const kitchenSection = () => {
+  if (but_k === false) {
+    kitchen.show();
+    all.filter((elm, i) => {
+      if (all[i].section === "kitchen") {
+        let div = $(
+          ` <div>
+                        <div class="card">
+                          <img class="img" src=${all[i].img} style="width:100%">
+                          <div class="container">
+                            <h4><b> ${all[i].price} JD</b></h4>
+                            <p>${all[i].p}</p>
+                          </div>
+                        </div>
+                        `
+        );
+        k.append(div);
+      }
+    });
+    but_k = true;
+  } else {
+    kitchen.hide();
+    but_k = false;
+    k.html("");
+  }
+};
+
+let but_s = false;
+const shoesSection = () => {
+  if (but_s === false) {
+    shoes.show();
+    all.filter((elm, i) => {
+      if (all[i].section === "shoes") {
+        let div = $(
+          ` <div>
+                        <div class="card">
+                          <img class="img" src=${all[i].img} style="width:100%">
+                          <div class="container">
+                            <h4><b> ${all[i].price} JD</b></h4>
+                            <p>${all[i].p}</p>
+                          </div>
+                        </div>
+                        `
+        );
+        s.append(div);
+      }
+    });
+    but_s = true;
+  } else {
+    shoes.hide();
+    but_s = false;
+    s.html("");
+  }
+};
+
+let but_b = false;
+let count = 0;
+const bagSection = () => {
+  if (but_b === false) {
+    bag.show();
+    all.filter((elm, i) => {
+      if (all[i].section === "bag") {
+        let div = $(
+          ` <div>
+                        <div class="card">
+                          <img class="img" src=${all[i].img} style="width:100%">
+                          <div class="container">
+                            <h4><b> ${all[i].price} JD</b></h4>
+                            <p>${all[i].p}</p>
+                          </div>
+                        </div>
+                        `
+        );
+        b.append(div);
+      }
+    });
+    but_b = true;
+  } else {
+    bag.hide();
+    but_b = false;
+    b.html("");
+  }
+};
 
 const fname = $("#fname");
 const email = $("#email");
