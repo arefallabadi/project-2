@@ -26,5 +26,12 @@ const load = ()=>{
     buy.hide()
 }
 
+const registering =()=>{
+    register.show()
+}
+
+const contactUs =()=>{
+    contact.show()
+}
 
 
