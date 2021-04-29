@@ -43,7 +43,7 @@
         <input type="text" placeholder="Email">
         <input type="text" placeholder="Password">
         <button>Login</button>
-        <p>Don't have an account yet? <a onclick="registering()" style="color: rgb(13, 11, 105); font-size: 17px;"
+        <p>Don't Have An Account Yet? <a onclick="registering()" style="color: rgb(13, 11, 105); font-size: 17px;"
             href="#register">Register Now</a></p>
       </div>
     </section>
@@ -60,7 +60,7 @@
     </section>
     <section id="market">
       <div class="cards">
-        <div>
+        <div onclick=" clothesSection()">
           <div class="card">
             <img class="img" src="./img/clothes.jpg" alt="Avatar" style="width:100%">
             <div class="container">
@@ -68,7 +68,7 @@
             </div>
           </div>
         </div>
-        <div>
+        <div onclick="electronicSection()">
           <div class="card">
             <img class="img" src="./img/electronics.jpg" alt="Avatar" style="width:100%">
             <div class="container">
@@ -76,7 +76,7 @@
             </div>
           </div>
         </div>
-        <div>
+        <div onclick="kitchenSection()">
           <div class="card">
             <img class="img" src="./img/kitchen.jpg" alt="Avatar" style="width:100%">
             <div class="container">
@@ -84,7 +84,7 @@
             </div>
           </div>
         </div>
-        <div>
+        <div onclick=" shoesSection()">
           <div class="card">
             <img class="img" src="./img/shoes.jpg" alt="Avatar" style="width:100%">
             <div class="container">
@@ -92,7 +92,7 @@
             </div>
           </div>
         </div>
-        <div>
+        <div onclick=" bagSection()">
           <div class="card">
             <img class="img" src="./img/bags.jpg" alt="Avatar" style="width:100%">
             <div class="container">
@@ -107,7 +107,7 @@
       <div id="c" class="cards">
 
       </div>
-    
+
     </section>
 
     <section id="electronic">
@@ -148,6 +148,7 @@
         <input type="text" placeholder="subject">
         <input type="text" placeholder="massage">
         <button>Send</button>
+        <p>If You Want More Help? <a style="color: rgb(13, 11, 105); font-size: 17px;">0780949568</a></p>
       </div>
     </section>
 
@@ -159,8 +160,7 @@
     </section>
     <script src="main.js"></script>
     <script>
-      createCard()
-      // load()
+        load()
     </script>
 </body>
 

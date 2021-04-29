@@ -47,71 +47,204 @@ const shoes = $("#shoes");
 const bag = $("#bag");
 const buy = $("#buy");
 const c =$("#c")
-
-const createCard =()=>{
-    
-    for(let i = 0 ; i<all.length ;i++ ){
-       let div = $(
-        `
-        <div>
-            <div class="card">
-              <img class="img" src=${all[i].img} style="width:100%">
-              <div class="container">
-                <h4><b> ${all[i].price} JD</b></h4>
-                <p>${all[i].p}</p>
-              </div>
-            </div>
-            `
-        )
-        c.append(div)
-    }
-}
-
+const e = $("#e")
+const k = $("#k")
+const s = $("#s")
+const b = $("#b")
 
 
 const load = () => {
-  register.hide();
-  contact.hide();
-  about.hide();
-  market.hide();
-  clothes.hide();
-  electronic.hide();
-  kitchen.hide();
-  shoes.hide();
-  bag.hide();
-  buy.hide();
-};
-
-let but_1 = false;
-const registering = () => {
-  if (but_1 === false) {
-    register.show();
-    but_1 = true;
-  } else {
     register.hide();
-    but_1 = false;
-  }
-};
-let but_2 = false;
-const contactUs = () => {
-  if (but_2 === false) {
-    contact.show();
-    but_2 = true;
-  } else {
     contact.hide();
-    but_2 = false;
-  }
-};
-let but_3 = false;
-const abo = () => {
-  if (but_3 === false) {
-    about.show();
-    but_3 = true;
-  } else {
     about.hide();
-    but_3 = false;
-  }
-};
+    // market.hide();
+    clothes.hide();
+    electronic.hide();
+    kitchen.hide();
+    shoes.hide();
+    bag.hide();
+    buy.hide();
+  };
+  
+  let but_1 = false;
+  const registering = () => {
+    if (but_1 === false) {
+      register.show();
+      but_1 = true;
+    } else {
+      register.hide();
+      but_1 = false;
+    }
+  };
+  let but_2 = false;
+  const contactUs = () => {
+    if (but_2 === false) {
+      contact.show();
+      but_2 = true;
+    } else {
+      contact.hide();
+      but_2 = false;
+    }
+  };
+  let but_3 = false;
+  const abo = () => {
+    if (but_3 === false) {
+      about.show();
+      but_3 = true;
+    } else {
+      about.hide();
+      but_3 = false;
+    }
+  };
+
+const createCard =()=>{
+    
+    // for(let i = 0 ; i<all.length ;i++ ){
+    //    let div = $(
+    //     `
+    //     <div>
+    //         <div class="card">
+    //           <img class="img" src=${all[i].img} style="width:100%">
+    //           <div class="container">
+    //             <h4><b> ${all[i].price} JD</b></h4>
+    //             <p>${all[i].p}</p>
+    //           </div>
+    //         </div>
+    //         `
+    //     )
+    //     c.append(div)
+    // }
+
+    //    let y = all.forEach((e,i)=>{
+    //     let div = $(
+    //         ` <div>
+    //             <div class="card">
+    //               <img class="img" src=${all[i].img} style="width:100%">
+    //               <div class="container">
+    //                 <h4><b> ${all[i].price} JD</b></h4>
+    //                 <p>${all[i].p}</p>
+    //               </div>
+    //             </div>
+    //             `
+    //         )
+    //         c.append(div)
+    // })
+}
+let but_c = false 
+const clothesSection =()=>{
+    clothes.show();
+    all.filter((elm,i)=>{
+        if (all[i].section ==="clothes"){
+            let div = $(
+                ` <div>
+                    <div class="card">
+                      <img class="img" src=${all[i].img} style="width:100%">
+                      <div class="container">
+                        <h4><b> ${all[i].price} JD</b></h4>
+                        <p>${all[i].p}</p>
+                      </div>
+                    </div>
+                    `
+                )
+                c.append(div)
+        }
+       
+    })
+}
+
+let but_e = false
+const electronicSection = ()=>{
+    electronic.show();
+    all.filter((elm,i)=>{
+        if (all[i].section ==="electronic"){
+            let div = $(
+                ` <div>
+                    <div class="card">
+                      <img class="img" src=${all[i].img} style="width:100%">
+                      <div class="container">
+                        <h4><b> ${all[i].price} JD</b></h4>
+                        <p>${all[i].p}</p>
+                      </div>
+                    </div>
+                    `
+                )
+                e.append(div)
+        }
+    })
+}
+
+let but_k =false
+const kitchenSection = ()=>{
+kitchen.show();
+    all.filter((elm,i)=>{
+        if (all[i].section ==="kitchen"){
+            let div = $(
+                ` <div>
+                    <div class="card">
+                      <img class="img" src=${all[i].img} style="width:100%">
+                      <div class="container">
+                        <h4><b> ${all[i].price} JD</b></h4>
+                        <p>${all[i].p}</p>
+                      </div>
+                    </div>
+                    `
+                )
+                k.append(div)
+        }
+    })
+}
+
+let but_s = false 
+const shoesSection = ()=>{
+    shoes.show();
+    all.filter((elm,i)=>{
+        if (all[i].section ==="shoes"){
+            let div = $(
+                ` <div>
+                    <div class="card">
+                      <img class="img" src=${all[i].img} style="width:100%">
+                      <div class="container">
+                        <h4><b> ${all[i].price} JD</b></h4>
+                        <p>${all[i].p}</p>
+                      </div>
+                    </div>
+                    `
+                )
+                s.append(div)
+        }  
+    })
+}
+
+let but_b = false 
+let count = 0
+const bagSection = ()=>{
+    if(but_b === false ){
+        bag.show();
+        all.filter((elm,i)=>{
+            if (all[i].section ==="bag"){
+                let div = $(
+                    ` <div>
+                        <div class="card">
+                          <img class="img" src=${all[i].img} style="width:100%">
+                          <div class="container">
+                            <h4><b> ${all[i].price} JD</b></h4>
+                            <p>${all[i].p}</p>
+                          </div>
+                        </div>
+                        `
+                    )
+                    b.append(div)
+            }
+           
+        })
+        but_b =true
+    } 
+     else{  
+        bag.hide()
+        but_b = false
+        b.html("")
+    }
+}
 
 const fname = $("#fname");
 const email = $("#email");
