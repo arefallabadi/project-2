@@ -67,7 +67,7 @@ li {
     display: grid;
     margin:  20px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    padding-right: ;
+    padding-right: 8px ;
     /* padding: 10px; */
 }
 

@@ -25,13 +25,37 @@ const load = ()=>{
     bag.hide()
     buy.hide()
 }
-
+let but_1 = false
 const registering =()=>{
-    register.show()
-}
+    if(but_1 === false){
+        register.show()
+        but_1 = true
+    }else{
+        register.hide()
+        but_1 = false
+    }  
 
+
+   
+}
+let but_2 = false
 const contactUs =()=>{
-    contact.show()
+    if(but_2 === false){
+        contact.show()
+        but_2 = true
+    }else{
+        contact.hide()
+        but_2 = false
+    }
+    
 }
-
-
+let but_3 =false
+const abo =()=>{
+    if(but_3 === false){
+        about.show()
+        but_3 = true
+    }else{
+        about.hide()
+        but_3 = false
+    }  
+}
