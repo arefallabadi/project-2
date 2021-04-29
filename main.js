@@ -64,6 +64,7 @@ const password = $("#password");
 const phone = $("#phone");
 const loc = $("#location");
 
+let x;
 const newUser = () => {
   let obj_1 = {
     name: fname.val(),
@@ -82,12 +83,15 @@ const newUser = () => {
   //   obj_1[password] = password.val();
   //   obj_1[phone] = phone.val();
   //   obj_1[loc] = loc.val();
-
   user.push(obj_1);
-  logIn.push(obj_2)
-    fname.val("") ;
-    email.val("") ;
-    password.val("") ;
-    phone.val("") ;
-    loc.val("") ;
-}
+  logIn.push(obj_2);
+
+  localStorage.setItem("users", JSON.stringify(user));
+  x = JSON.parse(localStorage.getItem("users"));
+
+  fname.val("");
+  email.val("");
+  password.val("");
+  phone.val("");
+  loc.val("");
+};
