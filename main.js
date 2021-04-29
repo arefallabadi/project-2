@@ -245,30 +245,40 @@ const loc = $("#location");
 let x;
 let z;
 const newUser = () => {
-  let obj_1 = {
-    name: fname.val(),
-    email: email.val(),
-    password: password.val(),
-    phone: phone.val(),
-    location: loc.val(),
-  };
-  let obj_2 = {
-    name: fname.val(),
-    email: email.val(),
-    password: password.val(),
-  };
-  user.push(obj_1);
-  logIn.push(obj_2);
-
-  localStorage.setItem("users", JSON.stringify(user));
-  x = JSON.parse(localStorage.getItem("users"));
-
-  localStorage.setItem("log", JSON.stringify(logIn));
-  z = JSON.parse(localStorage.getItem("log"));
-
-  fname.val("");
-  email.val("");
-  password.val("");
-  phone.val("");
-  loc.val("");
+    if(fname.val().length <5 || password.val().length < 8 || phone.val().length > 10  ){
+        // fname.text("no") 
+        // email.val("");
+        // password.val("");
+        // phone.val("");
+        // loc.val("");
+    }
+else{
+    let obj_1 = {
+        name: fname.val(),
+        email: email.val(),
+        password: password.val(),
+        phone: phone.val(),
+        location: loc.val(),
+      };
+      let obj_2 = {
+        name: fname.val(),
+        email: email.val(),
+        password: password.val(),
+      };
+      user.push(obj_1);
+      logIn.push(obj_2);
+    
+      localStorage.setItem("users", JSON.stringify(user));
+      x = JSON.parse(localStorage.getItem("users"));
+    
+      localStorage.setItem("log", JSON.stringify(logIn));
+      z = JSON.parse(localStorage.getItem("log"));
+    
+      fname.val("");
+      email.val("");
+      password.val("");
+      phone.val("");
+      loc.val("");
+}
+  
 };
