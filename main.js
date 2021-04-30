@@ -1,6 +1,7 @@
 let logIn = [];
 let user = [];
 let massage = [];
+let cart = [];
 
 let all = [
   { section: "clothes", img: "./clo/s1.jpg", price: 50, p: "for man" },
@@ -51,6 +52,7 @@ const e = $("#e");
 const k = $("#k");
 const s = $("#s");
 const b = $("#b");
+const carts = $("#cart");
 
 const load = () => {
   register.hide();
@@ -100,14 +102,15 @@ const clothesSection = () => {
   if (but_c === false) {
     clothes.show();
     all.filter((elm, i) => {
-      if (all[i].section === "clothes") {
+      if (elm.section === "clothes") {
         let div = $(
           ` <div>
                         <div class="card">
-                          <img class="img" src=${all[i].img} style="width:100%">
+                          <img class="img" src=${elm.img}>
                           <div class="container">
-                            <h4><b> ${all[i].price} JD</b></h4>
-                            <p>${all[i].p}</p>
+                            <h4><b> ${elm.price} JD</b></h4>
+                            <p>${elm.p}</p>
+                            <button class="buttons" onclick="addToCart(${i})" >Add To Cart</button>
                           </div>
                         </div>
                         `
@@ -128,14 +131,15 @@ const electronicSection = () => {
   if (but_e === false) {
     electronic.show();
     all.filter((elm, i) => {
-      if (all[i].section === "electronic") {
+      if (elm.section === "electronic") {
         let div = $(
           ` <div>
                         <div class="card">
-                          <img class="img" src=${all[i].img} style="width:100%">
+                          <img class="img" src=${elm.img}>
                           <div class="container">
-                            <h4><b> ${all[i].price} JD</b></h4>
-                            <p>${all[i].p}</p>
+                            <h4><b> ${elm.price} JD</b></h4>
+                            <p>${elm.p}</p>
+                            <button class="buttons" onclick="addToCart(${i})" >Add To Cart</button>
                           </div>
                         </div>
                         `
@@ -156,14 +160,15 @@ const kitchenSection = () => {
   if (but_k === false) {
     kitchen.show();
     all.filter((elm, i) => {
-      if (all[i].section === "kitchen") {
+      if (elm.section === "kitchen") {
         let div = $(
           ` <div>
                         <div class="card">
-                          <img class="img" src=${all[i].img} style="width:100%">
+                          <img class="img" src=${elm.img}>
                           <div class="container">
-                            <h4><b> ${all[i].price} JD</b></h4>
-                            <p>${all[i].p}</p>
+                            <h4><b> ${elm.price} JD</b></h4>
+                            <p>${elm.p}</p>
+                            <button class="buttons" onclick="addToCart(${i})" >Add To Cart</button>
                           </div>
                         </div>
                         `
@@ -184,14 +189,15 @@ const shoesSection = () => {
   if (but_s === false) {
     shoes.show();
     all.filter((elm, i) => {
-      if (all[i].section === "shoes") {
+      if (elm.section === "shoes") {
         let div = $(
           ` <div>
                         <div class="card">
-                          <img class="img" src=${all[i].img} style="width:100%">
+                          <img class="img" src=${elm.img}>
                           <div class="container">
-                            <h4><b> ${all[i].price} JD</b></h4>
-                            <p>${all[i].p}</p>
+                            <h4><b> ${elm.price} JD</b></h4>
+                            <p>${elm.p}</p>
+                            <button class="buttons" onclick="addToCart(${i})" >Add To Cart</button>
                           </div>
                         </div>
                         `
@@ -208,19 +214,19 @@ const shoesSection = () => {
 };
 
 let but_b = false;
-let count = 0;
 const bagSection = () => {
   if (but_b === false) {
     bag.show();
     all.filter((elm, i) => {
-      if (all[i].section === "bag") {
+      if (elm.section === "bag") {
         let div = $(
           ` <div>
                         <div class="card">
-                          <img class="img" src=${all[i].img} style="width:100%">
+                          <img class="img" src=${elm.img}>
                           <div class="container">
-                            <h4><b> ${all[i].price} JD</b></h4>
-                            <p>${all[i].p}</p>
+                            <h4><b> ${elm.price} JD</b></h4>
+                            <p>${elm.p}</p>
+                            <button class="buttons" onclick="addToCart(${i})" >Add To Cart</button>
                           </div>
                         </div>
                         `
@@ -245,40 +251,46 @@ const loc = $("#location");
 let x;
 let z;
 const newUser = () => {
-    if(fname.val().length <5 || password.val().length < 8 || phone.val().length > 10  ){
-        // fname.text("no") 
-        // email.val("");
-        // password.val("");
-        // phone.val("");
-        // loc.val("");
-    }
-else{
+  if (
+    fname.val().length < 5 ||
+    password.val().length < 8 ||
+    phone.val().length > 10
+  ) {
+  } else {
     let obj_1 = {
-        name: fname.val(),
-        email: email.val(),
-        password: password.val(),
-        phone: phone.val(),
-        location: loc.val(),
-      };
-      let obj_2 = {
-        name: fname.val(),
-        email: email.val(),
-        password: password.val(),
-      };
-      user.push(obj_1);
-      logIn.push(obj_2);
-    
-      localStorage.setItem("users", JSON.stringify(user));
-      x = JSON.parse(localStorage.getItem("users"));
-    
-      localStorage.setItem("log", JSON.stringify(logIn));
-      z = JSON.parse(localStorage.getItem("log"));
-    
-      fname.val("");
-      email.val("");
-      password.val("");
-      phone.val("");
-      loc.val("");
-}
-  
+      name: fname.val(),
+      email: email.val(),
+      password: password.val(),
+      phone: phone.val(),
+      location: loc.val(),
+    };
+    let obj_2 = {
+      name: fname.val(),
+      email: email.val(),
+      password: password.val(),
+    };
+    user.push(obj_1);
+    logIn.push(obj_2);
+
+    localStorage.setItem("users", JSON.stringify(user));
+    x = JSON.parse(localStorage.getItem("users"));
+
+    localStorage.setItem("log", JSON.stringify(logIn));
+    z = JSON.parse(localStorage.getItem("log"));
+
+    fname.val("");
+    email.val("");
+    password.val("");
+    phone.val("");
+    loc.val("");
+  }
 };
+
+let y;
+const addToCart = (i) => {
+  cart.push(all[i]);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  y = JSON.parse(localStorage.getItem("cart"));
+};
+
+
