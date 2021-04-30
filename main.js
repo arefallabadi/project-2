@@ -293,4 +293,32 @@ const addToCart = (i) => {
   y = JSON.parse(localStorage.getItem("cart"));
 };
 
+let but_cart;
+const showCart = () => {
+  if(y.length === 0){
 
+  }
+   else if (but_cart === false) {
+    buy.show();
+    y.forEach((elm, i) => {
+      let div = $(
+        ` <div>
+                        <div class="card">
+                          <img class="img" src=${elm.img}>
+                          <div class="container">
+                            <h4><b> ${elm.price} JD</b></h4>
+                            <p>${elm.p}</p>
+                            <button class="buttons" onclick="removeFromCart(${i})" >Remove</button>
+                          </div>
+                        </div>
+                        `
+      );
+      carts.append(div);
+    });
+    but_cart = true;
+  } else {
+    buy.hide();
+    but_cart = false;
+    carts.html("");
+  }
+};
