@@ -71,6 +71,10 @@ section {
 }
 
 /* ===> others <=== */
+#errorMassage{
+  color: red;
+  
+}
 #icon {
   height: 50px;
   width: 40px;

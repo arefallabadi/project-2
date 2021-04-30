@@ -3,6 +3,14 @@ let user = [];
 let massage = [];
 let cart = [];
 
+
+
+
+
+
+
+
+
 let all = [
   { section: "clothes", img: "./clo/s1.jpg", price: 50, p: "for man" },
   { section: "clothes", img: "./clo/s4.jpg", price: 45, p: "for man" },
@@ -53,9 +61,8 @@ const k = $("#k");
 const s = $("#s");
 const b = $("#b");
 const carts = $("#cart");
-
-
-
+const errorMassage = $("#errorMassage")
+const errorMassage_2 =$("#errorMassage_2")
 
 const load = () => {
   register.hide();
@@ -68,6 +75,7 @@ const load = () => {
   shoes.hide();
   bag.hide();
   buy.hide();
+  errorMassage.hide();
 };
 
 let but_1 = false;
@@ -352,28 +360,45 @@ const remove = () => {
   }, 0);
 };
 
-const name_2 =$("#name_2")
-const email_2 = $("#email_2")
-const password_2 = $("#password_2")
+const name_2 = $("#name_2");
+const email_2 = $("#email_2");
+const password_2 = $("#password_2");
 
-const loginMain = ()=>{
-  if(name_2.val()){
+const loginMain = () => {
+  if (name_2.val()) {
+    errorMassage.html("Name incorrect")
     name_2.css({
-      "border" : "solid #55bdfa",
-    })
-  }
-  else if(email_2.val()){
+      border: "solid red",
+    });
+  } else if (email_2.val()) {
+    errorMassage.html("Email incorrect")
+    email_2.css({
+      border: "solid red",
+    });
+  } else if (password_2.val()) {
+    errorMassage.html("Password incorrect")
     password_2.css({
-      "border" : "solid #55bdfa",
-    })
-  }else if(password_2.val()){
-    password_2.css({
-      "border" : "solid #55bdfa",
-    })
-  }else{
-    login.hide()
-    market.show()
+      border: "solid red",
+    });
+  } else {
+    login.hide();
+    market.show();
   }
-}
+};
 
-
+const registerMain = () => {
+  if (fname.val()) {
+    errorMassage_2.html("Use another name")
+    fname.css({
+      border: "solid red",
+    });
+  } else if (email.val()) {
+    errorMassage_2.html("Use another name")
+    email.css({
+      border: "solid red",
+    });
+  } else {
+    register.hide();
+    login.show();
+  }
+};
