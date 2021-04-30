@@ -322,3 +322,9 @@ const showCart = () => {
     carts.html("");
   }
 };
+
+const removeFromCart = (i) => {
+  carts.html("");
+  let arr = y.splice(i, 1);
+  remove(arr);
+};
