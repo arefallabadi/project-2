@@ -1,15 +1,25 @@
-let logIn = [];
-let user = [];
+let logIn;
+let user;
 let massage = [];
-let cart = [];
+let cart;
 
+if (!!localStorage.getItem("cart")) {
+  cart = JSON.parse(localStorage.getItem("cart"));
+} else {
+  cart = [];
+}
 
+if (!!localStorage.getItem("user")) {
+  user = JSON.parse(localStorage.getItem("user"));
+} else {
+  user = [];
+}
 
-
-
-
-
-
+if (!!localStorage.getItem("logIn")) {
+  logIn = JSON.parse(localStorage.getItem("logIn"));
+} else {
+  logIn = [];
+}
 
 let all = [
   { section: "clothes", img: "./clo/s1.jpg", price: 50, p: "for man" },
@@ -61,8 +71,8 @@ const k = $("#k");
 const s = $("#s");
 const b = $("#b");
 const carts = $("#cart");
-const errorMassage = $("#errorMassage")
-const errorMassage_2 =$("#errorMassage_2")
+const errorMassage = $("#errorMassage");
+const errorMassage_2 = $("#errorMassage_2");
 
 const load = () => {
   register.hide();
@@ -76,6 +86,7 @@ const load = () => {
   bag.hide();
   buy.hide();
   errorMassage.hide();
+  errorMassage_2.hide();
 };
 
 let but_1 = false;
@@ -259,43 +270,43 @@ const password = $("#password");
 const phone = $("#phone");
 const loc = $("#location");
 
-let x;
-let z;
-const newUser = () => {
-  if (
-    fname.val().length < 5 ||
-    password.val().length < 8 ||
-    phone.val().length > 10
-  ) {
-  } else {
-    let obj_1 = {
-      name: fname.val(),
-      email: email.val(),
-      password: password.val(),
-      phone: phone.val(),
-      location: loc.val(),
-    };
-    let obj_2 = {
-      name: fname.val(),
-      email: email.val(),
-      password: password.val(),
-    };
-    user.push(obj_1);
-    logIn.push(obj_2);
+// let x;
+// let z;
+// const newUser = () => {
+//   // if (
+//   //   fname.val().length < 5 ||
+//   //   password.val().length < 8 ||
+//   //   phone.val().length > 10
+//   // ) {
+//   // } else {
+//     let obj_1 = {
+//       name: fname.val(),
+//       email: email.val(),
+//       password: password.val(),
+//       phone: phone.val(),
+//       location: loc.val(),
+//     };
+//     let obj_2 = {
+//       name: fname.val(),
+//       email: email.val(),
+//       password: password.val(),
+//     };
+//     user.push(obj_1);
+//     logIn.push(obj_2);
 
-    localStorage.setItem("users", JSON.stringify(user));
-    x = JSON.parse(localStorage.getItem("users"));
+//     localStorage.setItem("users", JSON.stringify(user));
+//     x = JSON.parse(localStorage.getItem("users"));
 
-    localStorage.setItem("log", JSON.stringify(logIn));
-    z = JSON.parse(localStorage.getItem("log"));
+//     localStorage.setItem("log", JSON.stringify(logIn));
+//     z = JSON.parse(localStorage.getItem("log"));
 
-    fname.val("");
-    email.val("");
-    password.val("");
-    phone.val("");
-    loc.val("");
-  }
-};
+//     fname.val("");
+//     email.val("");
+//     password.val("");
+//     phone.val("");
+//     loc.val("");
+//   // }
+// };
 
 let y;
 const addToCart = (i) => {
@@ -365,18 +376,19 @@ const email_2 = $("#email_2");
 const password_2 = $("#password_2");
 
 const loginMain = () => {
-  if (name_2.val()) {
-    errorMassage.html("Name incorrect")
+  for (let index = 0; index < z.length; index++) {}
+  if (z[0].name === name_2.val()) {
+    errorMassage.html("Name incorrect");
     name_2.css({
       border: "solid red",
     });
-  } else if (email_2.val()) {
-    errorMassage.html("Email incorrect")
+  } else if (z[0].email === email_2.val()) {
+    errorMassage.html("Email incorrect");
     email_2.css({
       border: "solid red",
     });
-  } else if (password_2.val()) {
-    errorMassage.html("Password incorrect")
+  } else if (z[0].password === password_2.val()) {
+    errorMassage.html("Password incorrect");
     password_2.css({
       border: "solid red",
     });
@@ -386,18 +398,48 @@ const loginMain = () => {
   }
 };
 
+let x;
+let z;
 const registerMain = () => {
-  if (fname.val()) {
-    errorMassage_2.html("Use another name")
+  for (let index_2 = 0; index_2 < z.length; index_2++) {}
+  if (fname.val().length < 5 || x[0].name === fname.val()) {
+    errorMassage_2.html("Use another name more 5 character");
     fname.css({
       border: "solid red",
     });
-  } else if (email.val()) {
-    errorMassage_2.html("Use another name")
+  } else if (password.val().length < 8 || x[0].email === email.val()) {
+    errorMassage_2.html("Use another name more 8 character ");
     email.css({
       border: "solid red",
     });
   } else {
+    let obj_1 = {
+      name: fname.val(),
+      email: email.val(),
+      password: password.val(),
+      phone: phone.val(),
+      location: loc.val(),
+    };
+    let obj_2 = {
+      name: fname.val(),
+      email: email.val(),
+      password: password.val(),
+    };
+    user.push(obj_1);
+    logIn.push(obj_2);
+
+    localStorage.setItem("user", JSON.stringify(user));
+    x = JSON.parse(localStorage.getItem("user"));
+
+    localStorage.setItem("logIn", JSON.stringify(logIn));
+    z = JSON.parse(localStorage.getItem("logIn"));
+
+    fname.val("");
+    email.val("");
+    password.val("");
+    phone.val("");
+    loc.val("");
+
     register.hide();
     login.show();
   }
