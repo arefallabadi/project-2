@@ -54,6 +54,9 @@ const s = $("#s");
 const b = $("#b");
 const carts = $("#cart");
 
+
+
+
 const load = () => {
   register.hide();
   contact.hide();
@@ -295,10 +298,8 @@ const addToCart = (i) => {
 
 let but_cart;
 const showCart = () => {
-  if(y.length === 0){
-
-  }
-   else if (but_cart === false) {
+  if (y.length === 0) {
+  } else if (but_cart === false) {
     buy.show();
     y.forEach((elm, i) => {
       let div = $(
@@ -350,3 +351,29 @@ const remove = () => {
     return acc + elm.price;
   }, 0);
 };
+
+const name_2 =$("#name_2")
+const email_2 = $("#email_2")
+const password_2 = $("#password_2")
+
+const loginMain = ()=>{
+  if(name_2.val()){
+    name_2.css({
+      "border" : "solid #55bdfa",
+    })
+  }
+  else if(email_2.val()){
+    password_2.css({
+      "border" : "solid #55bdfa",
+    })
+  }else if(password_2.val()){
+    password_2.css({
+      "border" : "solid #55bdfa",
+    })
+  }else{
+    login.hide()
+    market.show()
+  }
+}
+
+

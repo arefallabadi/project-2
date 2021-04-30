@@ -1,20 +1,11 @@
-/* *{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-} */
 body {
   height: 100%;
-  background-repeat: no-repeat;
 }
 .title {
   font-size: 35px;
   font-family: cursive;
 }
 nav {
-  /* background-color: rgb(95, 15, 55); */
-  /* margin-left: 50px;
- padding-right: 50px; */
   font-family: cursive;
 }
 ul {
@@ -29,12 +20,12 @@ li a {
   font-size: 25px;
   font-weight: bold;
   text-align: center;
-  padding: 20px 20px;
+  padding: 20px 20px ;
   text-decoration: none;
 }
 li a:hover {
   background-color: white;
-  color: #55bdfa;
+  color: #000;
   border-radius: 20px;
   text-decoration: black underline;
 }
@@ -45,7 +36,7 @@ li a:hover {
   display: flex;
   justify-content: space-around;
   color: white;
-  height: 120px;
+  height: 110px;
 }
 #rNavbar {
   position: relative;
@@ -53,10 +44,7 @@ li a:hover {
 section {
   display: block;
   border: solid rgb(196, 194, 194);
-  /* border-top: solid ;
-      border-bottom: solid; */
   margin-top: 40px;
-  /* background-color: #55BDFA; */
   border-radius: 20px;
 }
 
@@ -76,7 +64,6 @@ section {
   margin: 20px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   padding-right: 8px;
-  /* padding: 10px; */
 }
 
 .width {
@@ -84,7 +71,7 @@ section {
 }
 
 /* ===> others <=== */
-#icon{
+#icon {
   height: 50px;
   width: 40px;
 }
@@ -93,7 +80,6 @@ section {
   width: 100%;
   margin-top: 15px;
   margin-left: 15px;
-
 }
 .blue {
   color: rgb(13, 11, 105);
@@ -124,8 +110,6 @@ input {
   margin-bottom: 10px;
 }
 .buttons {
-  /* margin-left: 15px; */
-  /* margin-top: 20px; */
   border-radius: 10px;
   height: 40px;
   width: 100px;
@@ -138,19 +122,19 @@ input {
   background-color: white;
   color: #000;
   font-weight: 700;
+  cursor: pointer;
 }
+
 /*  ===> card <=== */
 .card {
   margin-top: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  /* width: 40%; */
   border-radius: 5px;
   background-color: #55bdfa;
   margin-bottom: 10px;
   height: 260px;
   margin-left: 10px;
-  /* border: solid gray; */
 }
 
 .card:hover {
@@ -160,13 +144,11 @@ input {
   margin-top: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  /* width: 40%; */
   border-radius: 5px;
   background-color: #55bdfa;
   margin-bottom: 10px;
   height: 200px;
   margin-left: 10px;
-  /* border: solid gray; */
 }
 
 .card1:hover {
@@ -179,4 +161,8 @@ input {
 }
 .container {
   padding: 2px 16px;
+}
+
+.pointer:hover {
+  cursor: pointer;
 }
