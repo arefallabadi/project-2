@@ -346,5 +346,7 @@ const remove = () => {
     carts.append(div);
   });
 
- 
+  y.reduce((acc, elm, i) => {
+    return acc + elm.price;
+  }, 0);
 };
