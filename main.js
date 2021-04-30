@@ -328,3 +328,23 @@ const removeFromCart = (i) => {
   let arr = y.splice(i, 1);
   remove(arr);
 };
+
+const remove = () => {
+  y.forEach((elm, i) => {
+    let div = $(
+      ` <div>
+                    <div class="card">
+                      <img class="img" src=${elm.img}>
+                      <div class="container">
+                        <h4><b> ${elm.price} JD</b></h4>
+                        <p>${elm.p}</p>
+                        <button class="buttons" onclick="removeFromCart(${i})" >Remove</button>
+                      </div>
+                    </div>
+                    `
+    );
+    carts.append(div);
+  });
+
+ 
+};
