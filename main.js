@@ -73,8 +73,9 @@ const b = $("#b");
 const carts = $("#cart");
 const errorMassage = $("#errorMassage");
 const errorMassage_2 = $("#errorMassage_2");
-
+const prices = $("#prices")
 const logout = $("#logout")
+const closeCart =$("#closeCart")
 
 const load = () => {
   register.hide();
@@ -90,6 +91,8 @@ const load = () => {
   errorMassage.hide();
   errorMassage_2.hide();
   logout.hide()
+  prices.hide()
+  closeCart.hide()
 };
 
 let but_1 = false;
@@ -306,6 +309,7 @@ const showCart = () => {
     but_cart = false;
     carts.html("");
   }
+  countPrice()
 };
 
 const removeFromCart = (i) => {
@@ -332,10 +336,8 @@ const remove = () => {
     );
     carts.append(div);
   });
-
-  y.reduce((acc, elm, i) => {
-    return acc + elm.price;
-  }, 0);
+  countPrice()
+ 
 };
 
 const name_2 = $("#name_2");
@@ -425,4 +427,13 @@ const logOut =()=>{
   password_2.val("")
   email_2.val("")
   logout.hide()
+}
+
+const countPrice = ()=>{
+  prices.show()
+  let counts =  y.reduce((acc, elm, i) => {
+    return acc + elm.price;
+  }, 0);
+
+  prices.html(`price = ${counts} JD`)
 }
