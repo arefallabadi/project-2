@@ -269,45 +269,6 @@ const email = $("#email");
 const password = $("#password");
 const phone = $("#phone");
 const loc = $("#location");
-
-// let x;
-// let z;
-// const newUser = () => {
-//   // if (
-//   //   fname.val().length < 5 ||
-//   //   password.val().length < 8 ||
-//   //   phone.val().length > 10
-//   // ) {
-//   // } else {
-//     let obj_1 = {
-//       name: fname.val(),
-//       email: email.val(),
-//       password: password.val(),
-//       phone: phone.val(),
-//       location: loc.val(),
-//     };
-//     let obj_2 = {
-//       name: fname.val(),
-//       email: email.val(),
-//       password: password.val(),
-//     };
-//     user.push(obj_1);
-//     logIn.push(obj_2);
-
-//     localStorage.setItem("users", JSON.stringify(user));
-//     x = JSON.parse(localStorage.getItem("users"));
-
-//     localStorage.setItem("log", JSON.stringify(logIn));
-//     z = JSON.parse(localStorage.getItem("log"));
-
-//     fname.val("");
-//     email.val("");
-//     password.val("");
-//     phone.val("");
-//     loc.val("");
-//   // }
-// };
-
 let y;
 const addToCart = (i) => {
   cart.push(all[i]);
@@ -349,6 +310,8 @@ const removeFromCart = (i) => {
   remove(arr);
 };
 
+
+
 const remove = () => {
   y.forEach((elm, i) => {
     let div = $(
@@ -376,23 +339,22 @@ const email_2 = $("#email_2");
 const password_2 = $("#password_2");
 
 const loginMain = () => {
-  for (let index = 0; index < z.length; index++) {}
-  if (z[0].name === name_2.val()) {
-    errorMassage.html("Name incorrect");
+  let array_2 = logIn.filter((elm,i)=>{
+    return elm.name !== name_2.val() && elm.email !== email_2.val() && elm.password !== password_2.val()
+ })
+  if (array_2.length>0 || name_2.val()=== "" ||email_2.val()==="" ||password_2.val() === "" ) {
+    errorMassage.show()
+    errorMassage.html("Name Or Email Or Password incorrect ");
     name_2.css({
       border: "solid red",
     });
-  } else if (z[0].email === email_2.val()) {
-    errorMassage.html("Email incorrect");
-    email_2.css({
-      border: "solid red",
-    });
-  } else if (z[0].password === password_2.val()) {
-    errorMassage.html("Password incorrect");
     password_2.css({
       border: "solid red",
     });
-  } else {
+    email_2.css({
+      border: "solid red",
+    });
+  }else {
     login.hide();
     market.show();
   }
@@ -401,13 +363,18 @@ const loginMain = () => {
 let x;
 let z;
 const registerMain = () => {
-  for (let index_2 = 0; index_2 < z.length; index_2++) {}
-  if (fname.val().length < 5 || x[0].name === fname.val()) {
+   
+ let array = user.filter((elm,i)=>{
+     return elm.name === fname.val() || elm.email === email.val()
+  })
+  if (fname.val().length < 5 ||array.length >0) {
+    errorMassage_2.show()
     errorMassage_2.html("Use another name more 5 character");
     fname.css({
       border: "solid red",
     });
-  } else if (password.val().length < 8 || x[0].email === email.val()) {
+  } else if (password.val().length < 8 ||array.length>0) {
+    errorMassage_2.show()
     errorMassage_2.html("Use another name more 8 character ");
     email.css({
       border: "solid red",
