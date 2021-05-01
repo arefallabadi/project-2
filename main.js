@@ -2,8 +2,9 @@ let logIn;
 let user;
 let massage = [];
 let cart;
-
+localStorage.removeItem("cart");
 if (!!localStorage.getItem("cart")) {
+  localStorage.removeItem("cart");
   cart = JSON.parse(localStorage.getItem("cart"));
 } else {
   cart = [];
@@ -440,6 +441,7 @@ const countPrice = ()=>{
 }
 
 const showM =()=>{
+  
   closeCart.show()
   register.hide();
   contact.hide();
@@ -457,3 +459,25 @@ const showM =()=>{
   prices.hide()
   login.hide()
 }
+
+const load_2 = () => {
+  name_2.val("")
+password_2.val("")
+email_2.val("")
+  register.hide();
+  contact.hide();
+  about.hide();
+  market.hide();
+  clothes.hide();
+  electronic.hide();
+  kitchen.hide();
+  shoes.hide();
+  bag.hide();
+  buy.hide();
+  errorMassage.hide();
+  errorMassage_2.hide();
+  logout.hide()
+  prices.hide()
+  closeCart.hide()
+  login.show()
+};
