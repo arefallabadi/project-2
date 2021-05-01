@@ -74,11 +74,13 @@ const carts = $("#cart");
 const errorMassage = $("#errorMassage");
 const errorMassage_2 = $("#errorMassage_2");
 
+const logout = $("#logout")
+
 const load = () => {
   register.hide();
   contact.hide();
   about.hide();
-  // market.hide();
+  market.hide();
   clothes.hide();
   electronic.hide();
   kitchen.hide();
@@ -87,6 +89,7 @@ const load = () => {
   buy.hide();
   errorMassage.hide();
   errorMassage_2.hide();
+  logout.hide()
 };
 
 let but_1 = false;
@@ -269,6 +272,7 @@ const email = $("#email");
 const password = $("#password");
 const phone = $("#phone");
 const loc = $("#location");
+
 let y;
 const addToCart = (i) => {
   cart.push(all[i]);
@@ -340,9 +344,9 @@ const password_2 = $("#password_2");
 
 const loginMain = () => {
   let array_2 = logIn.filter((elm,i)=>{
-    return elm.name !== name_2.val() && elm.email !== email_2.val() && elm.password !== password_2.val()
+    return elm.name === name_2.val() && elm.email === email_2.val() && elm.password === password_2.val()
  })
-  if (array_2.length>0 || name_2.val()=== "" ||email_2.val()==="" ||password_2.val() === "" ) {
+  if (array_2.length<0 || name_2.val()=== "" ||email_2.val()==="" || password_2.val() === "") {
     errorMassage.show()
     errorMassage.html("Name Or Email Or Password incorrect ");
     name_2.css({
@@ -357,6 +361,7 @@ const loginMain = () => {
   }else {
     login.hide();
     market.show();
+    logout.show()
   }
 };
 
@@ -411,3 +416,13 @@ const registerMain = () => {
     login.show();
   }
 };
+
+
+const logOut =()=>{
+  market.hide()
+  login.show()
+  name_2.val("")
+  password_2.val("")
+  email_2.val("")
+  logout.hide()
+}
