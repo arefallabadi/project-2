@@ -74,9 +74,9 @@ const b = $("#b");
 const carts = $("#cart");
 const errorMassage = $("#errorMassage");
 const errorMassage_2 = $("#errorMassage_2");
-const prices = $("#prices")
-const logout = $("#logout")
-const closeCart =$("#closeCart")
+const prices = $("#prices");
+const logout = $("#logout");
+const closeCart = $("#closeCart");
 
 const load = () => {
   register.hide();
@@ -91,10 +91,10 @@ const load = () => {
   buy.hide();
   errorMassage.hide();
   errorMassage_2.hide();
-  logout.hide()
-  prices.hide()
-  closeCart.hide()
-  login.show()
+  logout.hide();
+  prices.hide();
+  closeCart.hide();
+  login.show();
 };
 
 let but_1 = false;
@@ -311,7 +311,7 @@ const showCart = () => {
     but_cart = false;
     carts.html("");
   }
-  countPrice()
+  countPrice();
 };
 
 const removeFromCart = (i) => {
@@ -319,8 +319,6 @@ const removeFromCart = (i) => {
   let arr = y.splice(i, 1);
   remove(arr);
 };
-
-
 
 const remove = () => {
   y.forEach((elm, i) => {
@@ -338,8 +336,7 @@ const remove = () => {
     );
     carts.append(div);
   });
-  countPrice()
- 
+  countPrice();
 };
 
 const name_2 = $("#name_2");
@@ -347,11 +344,20 @@ const email_2 = $("#email_2");
 const password_2 = $("#password_2");
 
 const loginMain = () => {
-  let array_2 = logIn.filter((elm,i)=>{
-    return elm.name === name_2.val() && elm.email === email_2.val() && elm.password === password_2.val()
- })
-  if (array_2.length<0 || name_2.val()=== "" ||email_2.val()==="" || password_2.val() === "") {
-    errorMassage.show()
+  let array_2 = logIn.filter((elm, i) => {
+    return (
+      elm.name === name_2.val() &&
+      elm.email === email_2.val() &&
+      elm.password === password_2.val()
+    );
+  });
+  if (
+    array_2.length === 0 ||
+    name_2.val() === "" ||
+    email_2.val() === "" ||
+    password_2.val() === ""
+  ) {
+    errorMassage.show();
     errorMassage.html("Name Or Email Or Password incorrect ");
     name_2.css({
       border: "solid red",
@@ -362,41 +368,55 @@ const loginMain = () => {
     email_2.css({
       border: "solid red",
     });
-  }else {
+  } else {
     login.hide();
     market.show();
-    logout.show()
+    logout.show();
   }
 };
-
+let obj_1
+let obj_2 
 let x;
 let z;
 const registerMain = () => {
-   
- let array = user.filter((elm,i)=>{
-     return elm.name === fname.val() || elm.email === email.val()
+  let array = user.filter((elm, i) => {
+    return elm.name === fname.val() 
+  });
+  let array_3 = user.filter((elm,i)=>{
+    return elm.email === email.val()
   })
-  if (fname.val().length < 5 ||array.length >0) {
-    errorMassage_2.show()
+  console.log(array)
+  if (array.length > 0){
+    errorMassage_2.show();
+    errorMassage_2.html("")
+    errorMassage_2.html("User name already exist");
+    fname.css({
+      border: "solid red",
+    });
+  }
+  else if(fname.val().length < 5) {
+    errorMassage_2.html("")
+    errorMassage_2.show();
     errorMassage_2.html("Use another name more 5 character");
     fname.css({
       border: "solid red",
     });
-  } else if (password.val().length < 8 ||array.length>0) {
-    errorMassage_2.show()
+  } else if (array_3.length > 0) {
+    errorMassage_2.show();
+    errorMassage_2.html("")
     errorMassage_2.html("Use another name more 8 character ");
     email.css({
       border: "solid red",
     });
   } else {
-    let obj_1 = {
+     obj_1 = {
       name: fname.val(),
       email: email.val(),
       password: password.val(),
       phone: phone.val(),
       location: loc.val(),
     };
-    let obj_2 = {
+     obj_2 = {
       name: fname.val(),
       email: email.val(),
       password: password.val(),
@@ -421,28 +441,26 @@ const registerMain = () => {
   }
 };
 
+const logOut = () => {
+  market.hide();
+  login.show();
+  name_2.val("");
+  password_2.val("");
+  email_2.val("");
+  logout.hide();
+};
 
-const logOut =()=>{
-  market.hide()
-  login.show()
-  name_2.val("")
-  password_2.val("")
-  email_2.val("")
-  logout.hide()
-}
-
-const countPrice = ()=>{
-  prices.show()
-  let counts =  y.reduce((acc, elm, i) => {
+const countPrice = () => {
+  prices.show();
+  let counts = y.reduce((acc, elm, i) => {
     return acc + elm.price;
   }, 0);
 
-  prices.html(`price = ${counts} JD`)
-}
+  prices.html(`price = ${counts} JD`);
+};
 
-const showM =()=>{
-  
-  closeCart.show()
+const showM = () => {
+  closeCart.show();
   register.hide();
   contact.hide();
   about.hide();
@@ -455,15 +473,15 @@ const showM =()=>{
   buy.hide();
   errorMassage.hide();
   errorMassage_2.hide();
-  logout.hide()
-  prices.hide()
-  login.hide()
-}
+  logout.hide();
+  prices.hide();
+  login.hide();
+};
 
 const load_2 = () => {
-  name_2.val("")
-password_2.val("")
-email_2.val("")
+  name_2.val("");
+  password_2.val("");
+  email_2.val("");
   register.hide();
   contact.hide();
   about.hide();
@@ -476,8 +494,9 @@ email_2.val("")
   buy.hide();
   errorMassage.hide();
   errorMassage_2.hide();
-  logout.hide()
-  prices.hide()
-  closeCart.hide()
-  login.show()
+  logout.hide();
+  prices.hide();
+  closeCart.hide();
+  login.show();
 };
+
