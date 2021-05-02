@@ -1,6 +1,6 @@
 let logIn;
 let user;
-let massage = [];
+let massage;
 let cart;
 localStorage.removeItem("cart");
 if (!!localStorage.getItem("cart")) {
@@ -8,6 +8,11 @@ if (!!localStorage.getItem("cart")) {
   cart = JSON.parse(localStorage.getItem("cart"));
 } else {
   cart = [];
+}
+if (!!localStorage.getItem("massage")) {
+  massage = JSON.parse(localStorage.getItem("massage"));
+} else {
+  massage = [];
 }
 
 if (!!localStorage.getItem("user")) {
@@ -374,28 +379,27 @@ const loginMain = () => {
     logout.show();
   }
 };
-let obj_1
-let obj_2 
+let obj_1;
+let obj_2;
 let x;
 let z;
 const registerMain = () => {
   let array = user.filter((elm, i) => {
-    return elm.name === fname.val() 
+    return elm.name === fname.val();
   });
-  let array_3 = user.filter((elm,i)=>{
-    return elm.email === email.val()
-  })
-  console.log(array)
-  if (array.length > 0){
+  let array_3 = user.filter((elm, i) => {
+    return elm.email === email.val();
+  });
+  console.log(array);
+  if (array.length > 0) {
     errorMassage_2.show();
-    errorMassage_2.html("")
+    errorMassage_2.html("");
     errorMassage_2.html("User name already exist");
     fname.css({
       border: "solid red",
     });
-  }
-  else if(fname.val().length < 5) {
-    errorMassage_2.html("")
+  } else if (fname.val().length < 5) {
+    errorMassage_2.html("");
     errorMassage_2.show();
     errorMassage_2.html("Use another name more 5 character");
     fname.css({
@@ -403,20 +407,20 @@ const registerMain = () => {
     });
   } else if (array_3.length > 0) {
     errorMassage_2.show();
-    errorMassage_2.html("")
+    errorMassage_2.html("");
     errorMassage_2.html("Use another name more 8 character ");
     email.css({
       border: "solid red",
     });
   } else {
-     obj_1 = {
+    obj_1 = {
       name: fname.val(),
       email: email.val(),
       password: password.val(),
       phone: phone.val(),
       location: loc.val(),
     };
-     obj_2 = {
+    obj_2 = {
       name: fname.val(),
       email: email.val(),
       password: password.val(),
@@ -439,6 +443,25 @@ const registerMain = () => {
     register.hide();
     login.show();
   }
+};
+
+const emails = $("#emails");
+const subject = $("#subject");
+const massages = $("#massages");
+
+let obj_3;
+const send = () => {
+  obj_3 = {
+    emails: emails.val(),
+    subject: subject.val(),
+    massages: massages.val(),
+  };
+  massage.push(obj_3);
+  localStorage.setItem("massage", JSON.stringify(massage));
+  a = JSON.parse(localStorage.getItem("massage"));
+  emails.val("");
+  subject.val("");
+  massages.val("");
 };
 
 const logOut = () => {
@@ -499,4 +522,3 @@ const load_2 = () => {
   closeCart.hide();
   login.show();
 };
-
