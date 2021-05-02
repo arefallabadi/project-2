@@ -2,7 +2,7 @@ body {
   height: 100%;
 }
 .title {
-  font-size: 35px;
+  font-size: 25px;
   font-family: cursive;
 }
 nav {
@@ -17,10 +17,10 @@ li {
 li a {
   color: #fff;
   display: flex;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: bold;
   text-align: center;
-  padding: 20px 20px;
+  padding: 10px 20px;
   text-decoration: none;
 }
 li a:hover {
@@ -36,7 +36,7 @@ li a:hover {
   display: flex;
   justify-content: space-around;
   color: white;
-  height: 110px;
+  height: 80px;
 }
 #rNavbar {
   position: relative;
@@ -49,6 +49,10 @@ section {
 }
 
 /* ===> div <=== */
+#out_2{
+  display: flex;
+justify-content: space-between;
+}
 .body {
   margin: 50px;
   font-family: cursive;
@@ -78,14 +82,14 @@ section {
   color: red;
 }
 #icon {
-  height: 50px;
-  width: 40px;
+  height: 40px;
+  width: 30px;
 }
 #img {
   height: 100%;
   width: 100%;
-  margin-top: 15px;
-  margin-left: 15px;
+  /* margin-top: 15px;
+  margin-left: 15px; */
 }
 .blue {
   color: rgb(13, 11, 105);
@@ -104,7 +108,6 @@ input {
   font-family: cursive;
   font-weight: 500;
 }
-
 .button {
   margin-top: 20px;
   border-radius: 10px;
@@ -114,6 +117,12 @@ input {
   background-color: black;
   color: white;
   margin-bottom: 10px;
+}
+button:hover{
+  background-color: #489ccc;
+  color: #000;
+  font-weight: 700;
+  cursor: pointer;
 }
 .buttons {
   border-radius: 10px;
@@ -176,15 +185,16 @@ input {
 
 @media (max-width : 900px) {
   li{ 
-    float: none;
+    float: left;
   }
   #navbar{
-    height:350px;
+    height:150px;
     display: block;
   }
   li a{
-    padding: 5px;
-    width: 150px;
+    width: 100px;
+    padding : 5px 5px;
+    font-size: 15px;
   }
   .title{
     padding-left: 40px;

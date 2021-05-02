@@ -82,6 +82,8 @@ const errorMassage_2 = $("#errorMassage_2");
 const prices = $("#prices");
 const logout = $("#logout");
 const closeCart = $("#closeCart");
+const out = $("#out")
+const welcome = $("#welcome")
 
 const load = () => {
   register.hide();
@@ -100,6 +102,7 @@ const load = () => {
   prices.hide();
   closeCart.hide();
   login.show();
+  out.hide();
 };
 
 let but_1 = false;
@@ -377,6 +380,8 @@ const loginMain = () => {
     login.hide();
     market.show();
     logout.show();
+    out.show()
+    welcome.html(`Welcome ${name_2.val()}`)
   }
 };
 let obj_1;
@@ -499,6 +504,7 @@ const showM = () => {
   logout.hide();
   prices.hide();
   login.hide();
+  out.hide()
 };
 
 const load_2 = () => {
@@ -521,4 +527,5 @@ const load_2 = () => {
   prices.hide();
   closeCart.hide();
   login.show();
+  out.hide();
 };
