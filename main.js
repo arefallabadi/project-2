@@ -82,9 +82,9 @@ const errorMassage_2 = $("#errorMassage_2");
 const prices = $("#prices");
 const logout = $("#logout");
 const closeCart = $("#closeCart");
-const out = $("#out")
-const welcome = $("#welcome")
-const icons = $("#icons")
+const out = $("#out");
+const welcome = $("#welcome");
+const icons = $("#icons");
 
 const load = () => {
   register.hide();
@@ -139,6 +139,7 @@ const abo = () => {
 let but_c = false;
 const clothesSection = () => {
   if (but_c === false) {
+    window.location.href = "#clothes";
     clothes.show();
     all.filter((elm, i) => {
       if (elm.section === "clothes") {
@@ -168,6 +169,7 @@ const clothesSection = () => {
 let but_e = false;
 const electronicSection = () => {
   if (but_e === false) {
+    window.location.href = "#electronic";
     electronic.show();
     all.filter((elm, i) => {
       if (elm.section === "electronic") {
@@ -197,7 +199,7 @@ const electronicSection = () => {
 let but_k = false;
 const kitchenSection = () => {
   if (but_k === false) {
-    // market.scrollTop(1000)
+    window.location.href = "#kitchen";
     kitchen.show();
     all.filter((elm, i) => {
       if (elm.section === "kitchen") {
@@ -227,6 +229,7 @@ const kitchenSection = () => {
 let but_s = false;
 const shoesSection = () => {
   if (but_s === false) {
+    window.location.href = "#shoes";
     shoes.show();
     all.filter((elm, i) => {
       if (elm.section === "shoes") {
@@ -256,6 +259,7 @@ const shoesSection = () => {
 let but_b = false;
 const bagSection = () => {
   if (but_b === false) {
+    window.location.href = "#bag";
     bag.show();
     all.filter((elm, i) => {
       if (elm.section === "bag") {
@@ -287,23 +291,23 @@ const email = $("#email");
 const password = $("#password");
 const phone = $("#phone");
 const loc = $("#location");
-let num = 0
+let num = 0;
 let y;
 const addToCart = (i) => {
-  icons.html("")
-  num +=1
-  icons.html(num)
+  icons.html("");
+  num += 1;
+  icons.html(num);
   cart.push(all[i]);
   localStorage.setItem("cart", JSON.stringify(cart));
   y = JSON.parse(localStorage.getItem("cart"));
-  showCart()
 };
-const hideBuy = $("#hideBuy")
+const hideBuy = $("#hideBuy");
 let but_cart;
 const showCart = () => {
   if (y.length === 0) {
-    hideBuy.hide()
+    hideBuy.hide();
   } else if (but_cart === false) {
+    window.location.href = "#cart";
     buy.show();
     y.forEach((elm, i) => {
       let div = $(
@@ -327,20 +331,19 @@ const showCart = () => {
     carts.html("");
   }
   countPrice();
-  hideBuy.show()
+  hideBuy.show();
 };
 
 const removeFromCart = (i) => {
-  icons.html("")
-  num -=1 
-  icons.html(num)
+  icons.html("");
+  num -= 1;
+  icons.html(num);
   carts.html("");
   y.splice(i, 1);
-  cart = y
-  localStorage.setItem("cart",JSON.stringify(y))
+  cart = y;
+  localStorage.setItem("cart", JSON.stringify(y));
   remove();
 };
-
 
 const remove = () => {
   y.forEach((elm, i) => {
@@ -395,8 +398,8 @@ const loginMain = () => {
     login.hide();
     market.show();
     logout.show();
-    out.show()
-    welcome.html(`Welcome ${name_2.val()}`)
+    out.show();
+    welcome.html(`Welcome ${name_2.val()}`);
   }
 };
 let obj_1;
@@ -500,8 +503,8 @@ const countPrice = () => {
   }, 0);
 
   prices.html(`price = ${counts} JD`);
-  if(counts === 0){
-    hideBuy.hide()
+  if (counts === 0) {
+    hideBuy.hide();
   }
 };
 
@@ -522,7 +525,7 @@ const showM = () => {
   logout.hide();
   prices.hide();
   login.hide();
-  out.hide()
+  out.hide();
 };
 
 const load_2 = () => {

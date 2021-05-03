@@ -46,7 +46,7 @@ li a:hover {
 section {
   display: block;
   border: solid rgb(196, 194, 194);
-  margin-top: 40px;
+  margin-top: 10px;
   border-radius: 20px;
 }
 
@@ -59,8 +59,8 @@ section {
   align-items: center;
 }
 .body {
-  padding-top: 0px;
   margin: 50px;
+  margin-top: 0px;
   font-family: cursive;
 }
 .section {
@@ -211,6 +211,7 @@ button:hover {
     padding-top: 1px;
     height: 250px;
     display: block;
+    margin-bottom: 0px;
   }
   li a {
     width: 100px;
@@ -223,7 +224,7 @@ button:hover {
   }
   .section {
     display: grid;
-    margin: 20px;
+    margin: 10px;
     justify-content: left;
     align-items: flex-start;
   }
@@ -238,9 +239,18 @@ button:hover {
   input {
     width: 350px;
   }
+  .body {
+    margin-top: 0;
+  }
 }
 
 @media (min-width: 1050px) {
+  body{
+    
+  }
+  #navbar{
+    width: 1050px;
+  }
   .section {
     display: grid;
     margin: 20px;
