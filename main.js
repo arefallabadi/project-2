@@ -86,6 +86,43 @@ const out = $("#out");
 const welcome = $("#welcome");
 const icons = $("#icons");
 
+const fname = $("#fname");
+const email = $("#email");
+const password = $("#password");
+const phone = $("#phone");
+const loc = $("#location");
+const wasAdd = $("#wasAdd");
+
+const hideBuy = $("#hideBuy");
+
+const name_2 = $("#name_2");
+const email_2 = $("#email_2");
+const password_2 = $("#password_2");
+
+const emails = $("#emails");
+const subject = $("#subject");
+const massages = $("#massages");
+
+let but_1 = false;
+let but_2 = false;
+let but_3 = false;
+let but_c = false;
+let but_e = false;
+let but_k = false;
+let but_s = false;
+let but_b = false;
+
+let but_cart;
+let num = 0;
+let y;
+
+let obj_1;
+let obj_2;
+let x;
+let z;
+
+let obj_3;
+
 const load = () => {
   register.hide();
   contact.hide();
@@ -104,9 +141,8 @@ const load = () => {
   closeCart.hide();
   login.show();
   out.hide();
+  wasAdd.hide();
 };
-
-let but_1 = false;
 const registering = () => {
   if (but_1 === false) {
     register.show();
@@ -116,7 +152,6 @@ const registering = () => {
     but_1 = false;
   }
 };
-let but_2 = false;
 const contactUs = () => {
   if (but_2 === false) {
     contact.show();
@@ -126,7 +161,6 @@ const contactUs = () => {
     but_2 = false;
   }
 };
-let but_3 = false;
 const abo = () => {
   if (but_3 === false) {
     about.show();
@@ -136,7 +170,6 @@ const abo = () => {
     but_3 = false;
   }
 };
-let but_c = false;
 const clothesSection = () => {
   if (but_c === false) {
     window.location.href = "#clothes";
@@ -165,8 +198,6 @@ const clothesSection = () => {
     c.html("");
   }
 };
-
-let but_e = false;
 const electronicSection = () => {
   if (but_e === false) {
     window.location.href = "#electronic";
@@ -195,8 +226,6 @@ const electronicSection = () => {
     e.html("");
   }
 };
-
-let but_k = false;
 const kitchenSection = () => {
   if (but_k === false) {
     window.location.href = "#kitchen";
@@ -225,8 +254,6 @@ const kitchenSection = () => {
     k.html("");
   }
 };
-
-let but_s = false;
 const shoesSection = () => {
   if (but_s === false) {
     window.location.href = "#shoes";
@@ -255,8 +282,6 @@ const shoesSection = () => {
     s.html("");
   }
 };
-
-let but_b = false;
 const bagSection = () => {
   if (but_b === false) {
     window.location.href = "#bag";
@@ -285,15 +310,11 @@ const bagSection = () => {
     b.html("");
   }
 };
-
-const fname = $("#fname");
-const email = $("#email");
-const password = $("#password");
-const phone = $("#phone");
-const loc = $("#location");
-let num = 0;
-let y;
 const addToCart = (i) => {
+  wasAdd.show();
+  setTimeout(() => {
+    wasAdd.hide();
+  }, 2000);
   icons.html("");
   num += 1;
   icons.html(num);
@@ -301,8 +322,6 @@ const addToCart = (i) => {
   localStorage.setItem("cart", JSON.stringify(cart));
   y = JSON.parse(localStorage.getItem("cart"));
 };
-const hideBuy = $("#hideBuy");
-let but_cart;
 const showCart = () => {
   if (y.length === 0) {
     hideBuy.hide();
@@ -333,7 +352,6 @@ const showCart = () => {
   countPrice();
   hideBuy.show();
 };
-
 const removeFromCart = (i) => {
   icons.html("");
   num -= 1;
@@ -344,7 +362,6 @@ const removeFromCart = (i) => {
   localStorage.setItem("cart", JSON.stringify(y));
   remove();
 };
-
 const remove = () => {
   y.forEach((elm, i) => {
     let div = $(
@@ -363,11 +380,6 @@ const remove = () => {
   });
   countPrice();
 };
-
-const name_2 = $("#name_2");
-const email_2 = $("#email_2");
-const password_2 = $("#password_2");
-
 const loginMain = () => {
   // login.scrollTop(1000)
   let array_2 = logIn.filter((elm, i) => {
@@ -402,10 +414,6 @@ const loginMain = () => {
     welcome.html(`Welcome ${name_2.val()}`);
   }
 };
-let obj_1;
-let obj_2;
-let x;
-let z;
 const registerMain = () => {
   let array = user.filter((elm, i) => {
     return elm.name === fname.val();
@@ -467,12 +475,6 @@ const registerMain = () => {
     login.show();
   }
 };
-
-const emails = $("#emails");
-const subject = $("#subject");
-const massages = $("#massages");
-
-let obj_3;
 const send = () => {
   obj_3 = {
     emails: emails.val(),
@@ -486,7 +488,6 @@ const send = () => {
   subject.val("");
   massages.val("");
 };
-
 const logOut = () => {
   market.hide();
   login.show();
@@ -495,7 +496,6 @@ const logOut = () => {
   email_2.val("");
   logout.hide();
 };
-
 const countPrice = () => {
   prices.show();
   let counts = y.reduce((acc, elm, i) => {
@@ -507,7 +507,6 @@ const countPrice = () => {
     hideBuy.hide();
   }
 };
-
 const showM = () => {
   closeCart.show();
   register.hide();
@@ -526,8 +525,8 @@ const showM = () => {
   prices.hide();
   login.hide();
   out.hide();
+  wasAdd.hide();
 };
-
 const load_2 = () => {
   name_2.val("");
   password_2.val("");
@@ -549,4 +548,5 @@ const load_2 = () => {
   closeCart.hide();
   login.show();
   out.hide();
+  wasAdd.hide();
 };

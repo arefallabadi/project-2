@@ -244,13 +244,27 @@ button:hover {
   }
 }
 
+#wasAdd{
+  position: fixed ;
+  border: solid rgb(170, 168, 168);
+  height: 50px;
+  margin-top: 10px;
+  width: 300px;
+  border-radius: 20px;
+  text-align: center;
+  justify-content: center;
+  padding-top: 20px;
+  background-color: rgba(179, 26, 26, 0.7);
+  font-size: 25px;
+}
 @media (min-width: 1050px) {
-  body{
-    
-  }
-  #navbar{
+  /* body{
+    display: grid;
+    justify-content: center;
+  } */
+  /* #navbar{
     width: 1050px;
-  }
+  } */
   .section {
     display: grid;
     margin: 20px;
