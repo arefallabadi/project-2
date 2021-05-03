@@ -81,8 +81,15 @@ justify-content: space-between;
 #errorMassage_2 {
   color: red;
 }
+#icons{
+  margin-top: 0px;
+  height: 15px;
+  width: 30px;
+  text-align: center;
+  color: rgb(148, 5, 5);
+}
 #icon {
-  height: 40px;
+  height: 33px;
   width: 30px;
 }
 #img {
@@ -185,10 +192,13 @@ button:hover{
 
 @media (max-width : 900px) {
   li{ 
-    float: left;
+    float: none;
+    padding-top: 0px;
+    margin-top: 0px;
   }
   #navbar{
-    height:150px;
+    padding-top: 1px;
+    height:250px;
     display: block;
   }
   li a{
@@ -198,6 +208,7 @@ button:hover{
   }
   .title{
     padding-left: 40px;
+    margin-bottom: 0px;
   }
   .section {
     display: grid;

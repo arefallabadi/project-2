@@ -84,6 +84,7 @@ const logout = $("#logout");
 const closeCart = $("#closeCart");
 const out = $("#out")
 const welcome = $("#welcome")
+const icons = $("#icons")
 
 const load = () => {
   register.hide();
@@ -285,9 +286,12 @@ const email = $("#email");
 const password = $("#password");
 const phone = $("#phone");
 const loc = $("#location");
-
+let num = 0
 let y;
 const addToCart = (i) => {
+  icons.html("")
+  num +=1
+  icons.html(num)
   cart.push(all[i]);
   localStorage.setItem("cart", JSON.stringify(cart));
   y = JSON.parse(localStorage.getItem("cart"));
@@ -323,6 +327,9 @@ const showCart = () => {
 };
 
 const removeFromCart = (i) => {
+  icons.html("")
+  num -=1 
+  icons.html(num)
   carts.html("");
   let arr = y.splice(i, 1);
   remove(arr);
