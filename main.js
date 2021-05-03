@@ -495,6 +495,7 @@ const logOut = () => {
   password_2.val("");
   email_2.val("");
   logout.hide();
+  load_2()
 };
 const countPrice = () => {
   prices.show();
