@@ -197,6 +197,7 @@ const electronicSection = () => {
 let but_k = false;
 const kitchenSection = () => {
   if (but_k === false) {
+    // market.scrollTop(1000)
     kitchen.show();
     all.filter((elm, i) => {
       if (elm.section === "kitchen") {
@@ -295,11 +296,13 @@ const addToCart = (i) => {
   cart.push(all[i]);
   localStorage.setItem("cart", JSON.stringify(cart));
   y = JSON.parse(localStorage.getItem("cart"));
+  showCart()
 };
-
+const hideBuy = $("#hideBuy")
 let but_cart;
 const showCart = () => {
   if (y.length === 0) {
+    hideBuy.hide()
   } else if (but_cart === false) {
     buy.show();
     y.forEach((elm, i) => {
@@ -324,6 +327,7 @@ const showCart = () => {
     carts.html("");
   }
   countPrice();
+  hideBuy.show()
 };
 
 const removeFromCart = (i) => {
@@ -331,9 +335,12 @@ const removeFromCart = (i) => {
   num -=1 
   icons.html(num)
   carts.html("");
-  let arr = y.splice(i, 1);
-  remove(arr);
+  y.splice(i, 1);
+  cart = y
+  localStorage.setItem("cart",JSON.stringify(y))
+  remove();
 };
+
 
 const remove = () => {
   y.forEach((elm, i) => {
@@ -359,6 +366,7 @@ const email_2 = $("#email_2");
 const password_2 = $("#password_2");
 
 const loginMain = () => {
+  // login.scrollTop(1000)
   let array_2 = logIn.filter((elm, i) => {
     return (
       elm.name === name_2.val() &&
@@ -492,6 +500,9 @@ const countPrice = () => {
   }, 0);
 
   prices.html(`price = ${counts} JD`);
+  if(counts === 0){
+    hideBuy.hide()
+  }
 };
 
 const showM = () => {

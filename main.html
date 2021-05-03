@@ -46,7 +46,7 @@
     </nav>
 
     <div class="body">
-      <section class="width" id="out">
+      <section id="out">
         <div id="out_2" class="section">
           <button id="logout" class="button" onclick="logOut()">Logout</button>
           <h3 id="welcome"></h3>
@@ -55,7 +55,7 @@
       <section class="width" id="login">
         <div class="section">
           <h2>Login</h2>
-          <input id="name_2" type="text" placeholder="Your Name" />
+          <input  id="name_2" type="text" placeholder="Your Name" />
           <input id="email_2" type="text" placeholder="Email" />
           <input id="password_2" type="password" placeholder="Password" />
           <p id="errorMassage"></p>
@@ -149,12 +149,12 @@
       </section>
 
       <section id="buy">
-        <div class="section">
+        <!-- <div class="section"> -->
           <h2 class="h2">Cart</h2>
           <div id="cart" class="cards"></div>
           <h2 id="prices" class="h2"></h2>
-          <button onclick="showM()" class="button">buy</button>
-        </div>
+          <div id="logO"><button id="hideBuy" onclick="showM()" class="button">buy</button></div>
+        <!-- </div> -->
       </section>
       <section class="width" id="contact">
         <div class="section">

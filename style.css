@@ -1,6 +1,8 @@
 body {
   height: 100%;
 }
+#welcome {
+}
 .title {
   font-size: 25px;
   font-family: cursive;
@@ -49,11 +51,15 @@ section {
 }
 
 /* ===> div <=== */
-#out_2{
+#out_2 {
   display: flex;
-justify-content: space-between;
+  justify-content: space-between;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  align-items: center;
 }
 .body {
+  padding-top: 0px;
   margin: 50px;
   font-family: cursive;
 }
@@ -75,13 +81,16 @@ justify-content: space-between;
 }
 
 /* ===> others <=== */
+#logO {
+  padding-left: 50px;
+}
 #errorMassage {
   color: red;
 }
 #errorMassage_2 {
   color: red;
 }
-#icons{
+#icons {
   margin-top: 0px;
   height: 15px;
   width: 30px;
@@ -95,8 +104,6 @@ justify-content: space-between;
 #img {
   height: 100%;
   width: 100%;
-  /* margin-top: 15px;
-  margin-left: 15px; */
 }
 .blue {
   color: rgb(13, 11, 105);
@@ -106,6 +113,7 @@ justify-content: space-between;
   text-align: center;
 }
 input {
+  outline: none;
   margin-top: 10px;
   border-radius: 10px;
   width: 400px;
@@ -114,6 +122,10 @@ input {
   font-size: large;
   font-family: cursive;
   font-weight: 500;
+}
+input:focus {
+  border-radius: 10px;
+  border-color: black;
 }
 .button {
   margin-top: 20px;
@@ -125,7 +137,7 @@ input {
   color: white;
   margin-bottom: 10px;
 }
-button:hover{
+button:hover {
   background-color: #489ccc;
   color: #000;
   font-weight: 700;
@@ -189,24 +201,23 @@ button:hover{
   cursor: pointer;
 }
 
-
-@media (max-width : 900px) {
-  li{ 
+@media (max-width: 900px) {
+  li {
     float: none;
     padding-top: 0px;
     margin-top: 0px;
   }
-  #navbar{
+  #navbar {
     padding-top: 1px;
-    height:250px;
+    height: 250px;
     display: block;
   }
-  li a{
+  li a {
     width: 100px;
-    padding : 5px 5px;
+    padding: 5px 5px;
     font-size: 15px;
   }
-  .title{
+  .title {
     padding-left: 40px;
     margin-bottom: 0px;
   }
@@ -217,19 +228,19 @@ button:hover{
     align-items: flex-start;
   }
   .cards {
-  display: grid;
-  margin: 20px;
-  grid-template-columns: 1fr 1fr;
-}
-.width{
-  width: 400px;
-}
-input{
-  width: 350px;
-}
+    display: grid;
+    margin: 20px;
+    grid-template-columns: 1fr 1fr;
+  }
+  .width {
+    width: 400px;
+  }
+  input {
+    width: 350px;
+  }
 }
 
-@media (min-width : 1050px) {
+@media (min-width: 1050px) {
   .section {
     display: grid;
     margin: 20px;
@@ -237,25 +248,28 @@ input{
     align-items: flex-start;
   }
   .cards {
-  display: grid;
-  margin: 20px;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+    display: grid;
+    margin: 20px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .body {
+    margin-top: 0px;
+    display: grid;
+    justify-content: center;
+    /* margin: 50px; */
+    font-family: cursive;
+  }
+  .section {
+    display: grid;
+    margin: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+  section {
+    width: 850px;
+  }
+  #out_2 {
+    display: flex;
+    justify-content: space-around;
+  }
 }
-.body {
-  margin-top: 0px ;
-  display: grid;
-  justify-content: center;
-  /* margin: 50px; */
-  font-family: cursive;
-}
-.section {
-  display: grid;
-  margin: 20px;
-  justify-content: center;
-  align-items:center;
-}
-section{
-  width:850px;
-}
-}
-
